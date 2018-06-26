@@ -22,6 +22,36 @@
 <!-- link to Angular CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 
+<!-- bootstrap navBar here --> 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+         
+            <a class="navbar-brand" href="#">Forecast Travel</a>
+          </div>
+      
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="https://github.com/Norby257" target="_blank"> <i class="fa fa-github-square w3-hover-opacity"></i></a> <span class="sr-only">(current)</span></a></li>
+              <li class="active"><a href="https://linkedin.com/in/nmaddenling" target="_blank"> <i class="fa fa-linkedin w3-hover-opacity"></i></a> <span class="sr-only">(current)</span></a></li>
+              
+            </ul>
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+              </div>
+              <!-- update the button so it functions like the one below -->
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://norby257.github.io/noreenPortfolio/" target="_blank">Portfolio</a></li>
+       
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+   <hr>
+<hr>
 <body ng-controller="HomeController.getWeather">
 <!-- input form -->
 <form action="">
@@ -31,6 +61,13 @@
 <!-- div for results to appear, prolly need to do ng-repeat, call the method on HomeController.getWeather  -->
 <div></div>
 
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <p class="text-center">Copyright Noreen M 2018</p>
+              <div class="container">
+               
+              </div>
+            </nav>
             <!-- geolocation --> 
             <script src="scripts/geolocation.js"></script>
             <!-- module for home page -->
