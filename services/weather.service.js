@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-
+    // controller depends on the service 
     angular.module('thing here').factory('placeholderThingHere' ,[
        '$q',
        '$http',

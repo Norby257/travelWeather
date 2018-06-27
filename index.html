@@ -55,11 +55,14 @@
 <body ng-controller="HomeController.getWeather">
 <!-- input form -->
 <form action="">
-    <input type="text" placeholder="check out vacay weather">
+    <input type="text" placeholder="city name">
+    <button>Go! </button>
 </form>
 
 <!-- div for results to appear, prolly need to do ng-repeat, call the method on HomeController.getWeather  -->
-<div></div>
+<div>
+    <p>Current forecast for  {{cityName}}</p>
+</div>
 
 
 <nav class="navbar navbar-inverse navbar-fixed-bottom">
