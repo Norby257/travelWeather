@@ -35,6 +35,18 @@
                 // return vm.forecasts;
             });
         }
+
+        function getDefaultWeather() {
+            return WeatherService.getDefaultWeather().then(function(data){
+                vm.title = data;
+            })
+        }
+
+        function getWeatherByCity() {
+            return WeatherService.getWeatherByCity().then(function(data){
+                // vm or $scope = something here 
+            })
+        }
     }
 
 }) ();
