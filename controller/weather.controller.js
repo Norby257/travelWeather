@@ -5,36 +5,40 @@
 //  then ng- ng repeat 
 //  use fn declarations 
 //  following Jonh Papa 
-
-function weatherController(weatherService) {
-    var vm = this;
-    vm.forecasts = [];
-    vm.getWeather = getWeather;
-    vm.title = 'Weather';
-    //  move this to service 
-var req = {
-    method: 'GET',
-    url: '',
-    headers: {
-        'x-api-key': '72f5cf872643336bf96167d5dda813cf'
+//  controller handles user interaction with app 
+//  actual HTTP call is in the service
+//  controller calls the service 
+//  in template do the ng-click 
+(function() {
+    angular.module('App')
+    .controller('weatherController', ['WeatherService', '$scope', weatherController])
+    function weatherController(WeatherService, $scope) {
+        var vm = this;
+        vm.forecasts = [];
+        vm.getWeather = getWeather;
+        vm.title = 'Weather';
+    
+    
+    
+        activate();
+    
+        function activate() {
+            return getWeather().then(function(){
+                console.log('activated Weather View');
+            });
+        }
+    
+        function getWeather() {
+            return WeatherService.getWeather().then(function(data) {
+                vm.title = data;
+                // vm.forecasts = data;
+                // return vm.forecasts;
+            });
+        }
     }
-}
 
-    activate();
+}) ();
 
-    function activate() {
-        return getWeather().then(function(){
-            console.log('activated Weather View');
-        });
-    }
-
-    function getWeather() {
-        return weatherService.getWeather().then(function(data) {
-            vm.forecasts = data;
-            return vm.forecasts;
-        });
-    }
-}
     
 
 
