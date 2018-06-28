@@ -11,6 +11,14 @@ function weatherController(weatherService) {
     vm.forecasts = [];
     vm.getWeather = getWeather;
     vm.title = 'Weather';
+    //  move this to service 
+var req = {
+    method: 'GET',
+    url: '',
+    headers: {
+        'x-api-key': '72f5cf872643336bf96167d5dda813cf'
+    }
+}
 
     activate();
 
