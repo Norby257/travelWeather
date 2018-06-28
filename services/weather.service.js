@@ -22,7 +22,7 @@
                     'x-api-key': '72f5cf872643336bf96167d5dda813cf'
                 }
             }
-            return $q.resolve('test')
+            return $q.resolve('APIDATA')
             
            }
 
