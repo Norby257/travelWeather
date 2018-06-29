@@ -13,19 +13,28 @@
     //  so for defauly it's just by zip code and then API call 
     angular.module('App').service('WeatherService', [
         '$http',
-        function getWeather($http) {
-            return $http
-            .get('https://api.openweathermap.org/data/2.5/weather?lat=41&lon=-88&APPID=72f5cf872643336bf96167d5dda813cf')
-            .then(function(response){
-                //  what we are sending back 
-                //  temperture: min and max 
-                //  chance of rain
-                //  wind speed
-            })
-            .catch(function() {
-                return new Error ('Failed to get Weather data');
+        WeatherService]);
 
-            });
-        }        
-    ])
+        function WeatherService($http) {
+            var self = this;
+
+            self.getWeather = getWeather;
+
+
+            function getWeather() {
+                return $http
+                .get('https://api.openweathermap.org/data/2.5/weather?lat=41&lon=-88&APPID=72f5cf872643336bf96167d5dda813cf')
+                .then(function(response){
+                    return response;
+                    //  what we are sending back 
+                    //  temperture: min and max 
+                    //  chance of rain
+                    //  wind speed
+                })
+                .catch(function() {
+                    return new Error ('Failed to get Weather data');
+    
+                });
+            }        
+        }
 })();

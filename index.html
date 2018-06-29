@@ -29,7 +29,7 @@
 <body ng-controller="weatherController as weather">
 
   <!-- bootstrap navBar here -->
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -65,18 +65,11 @@
 
 
     <!-- input form -->
-    <form name="frm">
+    <form name="frm"
+          ng-submit="weather.getWeather()">
       <input type="text" placeholder="city name" ng-model="cityInput">
       <button type="submit" id="submitCity" ng-disabled="frm.$invalid">Go! </button>
     </form>
-
-    <!-- input form -->
-    <form name="frm">
-      <input type="text" placeholder="city name" ng-model="cityInput">
-      <button type="submit" id="submitCity" ng-disabled="frm.$invalid">Go! </button>
-    </form>
-
-    <form action=""></form>
 
     <button>Go!</button>
 
