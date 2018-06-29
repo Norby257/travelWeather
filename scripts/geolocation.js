@@ -5,7 +5,7 @@ function getLocation() {
     if (navigator.geolocation) {
         // //google maps api 
         navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
+    } else {
         console.log("Geolocation is not supported by this browser.");
     }
 
@@ -17,7 +17,7 @@ function showPosition(position) {
     console.log(lat);
     console.log(lng);
     console.log("Latitude " + position.coords.latitude);
-    console.log( "Longitude " + position.coords.longitude);
+    console.log("Longitude " + position.coords.longitude);
 
 }
 

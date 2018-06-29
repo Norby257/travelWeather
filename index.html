@@ -8,18 +8,18 @@
   <title>Home | Travel Weather </title>
   <!-- link to bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-  crossorigin="anonymous">
-  
-  
+    crossorigin="anonymous">
+
+
   <!-- link to font awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-  crossorigin="anonymous">
+    crossorigin="anonymous">
 
   <!-- link to custom css -->
   <link rel="stylesheet" type="text/css" href="/style.css">
-  
-  
-  
+
+
+
 </head>
 
 
@@ -27,21 +27,21 @@
 
 
 <body ng-controller="weatherController as weather">
-  
-  <!-- bootstrap navBar here --> 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+
+  <!-- bootstrap navBar here -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        
+
         <a class="navbar-brand" href="#">Forecast Travel</a>
       </div>
-      
+
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-        
-          
+
+
         </ul>
         <form class="navbar-form navbar-left">
           <div class="form-group">
@@ -49,50 +49,54 @@
           <!-- update the button so it functions like the one below -->
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="https://norby257.github.io/noreenPortfolio/" target="_blank">Portfolio</a></li>
-          
+          <li>
+            <a href="https://norby257.github.io/noreenPortfolio/" target="_blank">Portfolio</a>
+          </li>
+
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
   </nav>
 
   <!-- div for results to appear, use ng-repeat directive  -->
   <div>
 
-          
-          <!-- input form -->
-          <form name="frm">
-            <input type="text" placeholder="city name" ng-model="cityInput">
-            <button type="submit" id="submitCity" ng-disabled="frm.$invalid">Go! </button>
-          </form>
 
-           <!-- input form -->
-           <form name="frm">
-              <input type="text" placeholder="city name" ng-model="cityInput">
-              <button type="submit" id="submitCity" ng-disabled="frm.$invalid">Go! </button>
-            </form>
+    <!-- input form -->
+    <form name="frm">
+      <input type="text" placeholder="city name" ng-model="cityInput">
+      <button type="submit" id="submitCity" ng-disabled="frm.$invalid">Go! </button>
+    </form>
 
-            <form action=""></form>
+    <!-- input form -->
+    <form name="frm">
+      <input type="text" placeholder="city name" ng-model="cityInput">
+      <button type="submit" id="submitCity" ng-disabled="frm.$invalid">Go! </button>
+    </form>
 
-            <button>Go!</button>
-  
+    <form action=""></form>
+
+    <button>Go!</button>
+
     {{weather.title}}
   </div>
-  
-  
+
+
   <nav class="navbar navbar-inverse navbar-fixed-bottom">
     <p class="text-center">Copyright Noreen M 2018</p>
     <div class="container">
-      
+
     </div>
   </nav>
-  <!-- geolocation --> 
+  <!-- geolocation -->
   <script src="scripts/geolocation.js"></script>
   <!-- module for home page -->
-  
+
   <!-- link to Angular CDN -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-<script src="app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="app.js"></script>
   <script src="services/weather.service.js"></script>
   <script src="controller/weather.controller.js"></script>
 
