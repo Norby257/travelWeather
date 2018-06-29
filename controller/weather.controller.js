@@ -19,38 +19,23 @@
         var vm = this;
         vm.forecasts = [];
         vm.getWeather = getWeather;
-        vm.title = 'Weather';
+        vm.title = 'Forecast';
 
 
 
         activate();
-
+        // getWeather();
         function activate() {
-            return getWeather().then(function () {
                 console.log('activated Weather View');
-            });
         }
 
         function getWeather() {
             return WeatherService.getWeather().then(function (data) {
                 vm.title = data;
-                // vm.forecasts = data;
-                // return vm.forecasts;
             });
         }
 
-        function getDefaultWeather(zip) {
-            return WeatherService.getDefaultWeather(zip).then(function (data) {
-                vm.title = data;
-            })
-        }
-        getDefaultWeather('60661');
 
-        function getWeatherByCity() {
-            return WeatherService.getWeatherByCity().then(function (data) {
-                // vm or $scope = something here 
-            })
-        }
     }
 
 })();
