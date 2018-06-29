@@ -14,6 +14,9 @@
   <!-- link to font awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
   crossorigin="anonymous">
+
+  <!-- link to custom css -->
+  <link rel="stylesheet" type="text/css" href="/style.css">
   
   
   
@@ -37,8 +40,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="https://github.com/Norby257" target="_blank"> <i class="fa fa-github-square w3-hover-opacity"></i></a> <span class="sr-only">(current)</span></a></li>
-          <li class="active"><a href="https://linkedin.com/in/nmaddenling" target="_blank"> <i class="fa fa-linkedin w3-hover-opacity"></i></a> <span class="sr-only">(current)</span></a></li>
+        
           
         </ul>
         <form class="navbar-form navbar-left">
@@ -53,17 +55,28 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <!-- input form -->
-  <form action="">
-    <input type="text" placeholder="city name">
-    <button>Go! </button>
-  </form>
-  
-  <!-- div for results to appear, prolly need to do ng-repeat, call the method on HomeController.getWeather  -->
+
+  <!-- div for results to appear, use ng-repeat directive  -->
   <div>
-    <p>Current forecast for  {{cityName}}</p>
+
+          
+          <!-- input form -->
+          <form name="frm">
+            <input type="text" placeholder="city name" ng-model="cityInput">
+            <button type="submit" id="submitCity" ng-disabled="frm.$invalid">Go! </button>
+          </form>
+
+           <!-- input form -->
+           <form name="frm">
+              <input type="text" placeholder="city name" ng-model="cityInput">
+              <button type="submit" id="submitCity" ng-disabled="frm.$invalid">Go! </button>
+            </form>
+
+            <form action=""></form>
+
+            <button>Go!</button>
+  
     {{weather.title}}
-    {{weather.getDefaultWeather.title}}
   </div>
   
   

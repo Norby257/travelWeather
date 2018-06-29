@@ -37,9 +37,9 @@
                 //    var city = city;
                    var req = {
                        method: 'GET',
-                       url: '',
+                       url: 'https://api.openweathermap/or/g2.5/weathe?q='+cityInput+'&appid=72f5cf872643336bf96167d5dda813cf',
                        headers: {
-                           'x-api-key': ''
+                           'x-api-key': '72f5cf872643336bf96167d5dda813cf'
                            
                        }
                       

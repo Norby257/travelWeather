@@ -13,6 +13,9 @@
     angular.module('App')
     .controller('weatherController', ['WeatherService', '$scope', weatherController])
     function weatherController(WeatherService, $scope) {
+        $scope.cityInput = {
+            city: ""
+        };
         var vm = this;
         vm.forecasts = [];
         vm.getWeather = getWeather;

@@ -12,9 +12,13 @@ function getLocation() {
 }
 
 function showPosition(position) {
-
+    var lat = Math.round(position.coords.latitude);
+    var lng = Math.round(position.coords.longitude);
+    console.log(lat);
+    console.log(lng);
     console.log("Latitude " + position.coords.latitude);
     console.log( "Longitude " + position.coords.longitude);
+
 }
 
 
