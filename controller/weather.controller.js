@@ -24,8 +24,8 @@
 
 
         activate();
-        getWeather();
-        getCityWeather();
+        // getWeather();
+        // getCityWeather();
         getDefaultWeather();
 
         function activate() {
@@ -35,6 +35,8 @@
         function getWeather() {
             return WeatherService.getWeather().then(function (data) {
                 vm.title = data;
+                vm.items = {};
+                vm.items = response.list;
             });
         }
 

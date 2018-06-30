@@ -62,7 +62,7 @@
   </nav>
 </div>
 
-  <!-- div for results to appear, use ng-repeat directive  -->
+
   <div>
 
 
@@ -75,6 +75,29 @@
     
     {{weather.title}}
   </div>
+
+  <!-- div for the results to appear; using bootstrap thumbnail -->
+  <!-- need to use ng-repeat for this --> 
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        
+        <div class="caption">
+          <p>Date/time here (convert from unix time)</p>
+          <p>{{response.data.weather[0].icon}}</p>
+          <a href="#">
+            <img class="media-object" src="https://openweathermap.org/img/w/{{item.weather[0].icon}}.png" alt="" style="max-width: 50px;"> </a>
+          <p>{{response.data.weather[0].description}} </p>
+          <p>{{ response.data.main.temp_max}} </p>
+          <p>{{ response.data.main.temp_min}} </p>
+          <p>{{ response.data.main.humidity}} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
 
 
   <nav class="navbar navbar-inverse navbar-fixed-bottom">
