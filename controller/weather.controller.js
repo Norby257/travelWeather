@@ -24,7 +24,10 @@
 
 
         activate();
-        // getWeather();
+        getWeather();
+        getCityWeather();
+        getDefaultWeather();
+
         function activate() {
                 console.log('activated Weather View');
         }
@@ -35,10 +38,25 @@
             });
         }
 
+        function getCityWeather() {
+            return WeatherService.getCityWeather().then(function(data){
+                vm.title = data;
+            })
+        }
+
+        function getDefaultWeather() {
+            return WeatherService.getDefaultWeather().then(function(data){
+                vm.title = data;
+            });
+        }
+
 
     }
 
 })();
+
+//  
+
 
 
 
