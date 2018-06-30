@@ -9,37 +9,56 @@
 //  actual HTTP call is in the service
 //  controller calls the service 
 //  in template do the ng-click 
-(function() {
+(function () {
     angular.module('App')
-    .controller('weatherController', ['WeatherService', '$scope', weatherController])
+        .controller('weatherController', ['WeatherService', '$scope', weatherController])
     function weatherController(WeatherService, $scope) {
+        // $scope.cityInput = {
+        //     city: ""
+        // };
         var vm = this;
         vm.forecasts = [];
         vm.getWeather = getWeather;
-        vm.title = 'Weather';
-    
-    
-    
+        vm.title = 'Forecast';
+
+
+
         activate();
-    
+        getWeather();
+        getCityWeather();
+        getDefaultWeather();
+
         function activate() {
-            return getWeather().then(function(){
                 console.log('activated Weather View');
-            });
         }
-    
+
         function getWeather() {
-            return WeatherService.getWeather().then(function(data) {
+            return WeatherService.getWeather().then(function (data) {
                 vm.title = data;
-                // vm.forecasts = data;
-                // return vm.forecasts;
             });
         }
+
+        function getCityWeather() {
+            return WeatherService.getCityWeather().then(function(data){
+                vm.title = data;
+            })
+        }
+
+        function getDefaultWeather() {
+            return WeatherService.getDefaultWeather().then(function(data){
+                vm.title = data;
+            });
+        }
+
+
     }
 
-}) ();
+})();
 
-    
+//  
+
+
+
 
 
 

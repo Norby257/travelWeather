@@ -5,15 +5,20 @@ function getLocation() {
     if (navigator.geolocation) {
         // //google maps api 
         navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
+    } else {
         console.log("Geolocation is not supported by this browser.");
     }
 
 }
 
 function showPosition(position) {
+    var lat = Math.round(position.coords.latitude);
+    var lng = Math.round(position.coords.longitude);
+    console.log(lat);
+    console.log(lng);
     console.log("Latitude " + position.coords.latitude);
-    console.log( "longitude " + position.coords.longitude);
+    console.log("Longitude " + position.coords.longitude);
+
 }
 
 
