@@ -49,15 +49,21 @@
             return WeatherService.getDefaultWeather().then(function(data){
                 vm.title = data;
                 // vm.icon  = "http://openweathermap.org/img/w/"+title.data.list[0].weather[0].icon +".png"
-               vm.projectInfo = {
-                   heading: "Angular JS weather App",
-                   subheading1: "Using open weather map API"
-               }
                //   push data into array 
+               //   then find a more efficient way to do this so i don't have to type as much 
+               //   reduce risk of error by less typing 
+               //   did preIncrement since postIncrement was generating infinite loop 
+               //   preIncrement means var val is incremented before expr is eval
                vm.forecasts.push(vm.title.data.list);
-            //    console.log(vm.forecasts);
                console.log(vm.forecasts); // output: [Array(40)]
-               console.log(vm.forecasts[0][0]); // output {dt: " ", prop: val, etc: etc}
+               console.log(vm.forecasts[0]);
+               console.log(vm.forecasts[0].length);
+               for (let i = 0; i < vm.forecasts[0].length; i+=8) {
+                   console.log(vm.forecasts[0][i]);
+                //    console.log(vm.forecasts[0][i].weather[0]);
+                // console.log(vm.forecasts[0][i].main)
+               }
+            //    console.log(vm.forecasts[0][0]); // output {dt: " ", prop: val, etc: etc}
 
                //   cache the vm.forecasts[0][0]?
                //   loop thru array, grab every eighth element 
