@@ -30,37 +30,37 @@
 
   <!-- bootstrap navBar here -->
   <div>
-  <nav class="navbar navbar-inverse navbar">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
+    <nav class="navbar navbar-inverse navbar">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
 
-        <a class="navbar-brand" href="#">Forecast Travel</a>
+          <a class="navbar-brand" href="#">Forecast Travel</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+
+
+          </ul>
+          <form class="navbar-form navbar-left">
+            <div class="form-group">
+            </div>
+            <!-- update the button so it functions like the one below -->
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="https://norby257.github.io/noreenPortfolio/" target="_blank">Portfolio</a>
+            </li>
+
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-
-
-        </ul>
-        <form class="navbar-form navbar-left">
-          <div class="form-group">
-          </div>
-          <!-- update the button so it functions like the one below -->
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="https://norby257.github.io/noreenPortfolio/" target="_blank">Portfolio</a>
-          </li>
-
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
-</div>
+      <!-- /.container-fluid -->
+    </nav>
+  </div>
 
 
   <div>
@@ -72,39 +72,40 @@
       <button type="submit" id="submitCity" ng-disabled="frm.$invalid">Go! </button>
     </form>
 
-    
-   
-    {{weather.projectInfo.heading}}
-    {{weather.projectInfo.subheading1}}
-    {{weather.title.temp}}
+
+
+    {{weather.projectInfo.heading}} {{weather.projectInfo.subheading1}} {{weather.title.temp}}
   </div>
 
   <!-- div for the results to appear; using bootstrap thumbnail -->
-  <!-- need to use ng-repeat for this --> 
+  <!-- need to use ng-repeat for this -->
 
   <div class="row">
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail" class="text-center">
-        <p>Date: {{weather.title.dt | date:'MM/dd/yyyy'}}</p>
         <!-- <p>Icon: {{weather.title.weather[0].icon}}</p> -->
-        <p><img ng-src="{{weather.icon}}" /></p>
-        <p>Description: {{weather.title.weather[0].description}}</p>
-        <p> High: {{weather.title.main.temp_max}}</p>
-        <p> Low: {{weather.title.main.temp_min}}</p>
-        <p> Humidity: {{weather.title.main.humidity}}</p>
-  
-        
-        
-       
+        <p>
+          <img ng-src="{{weather.icon}}" />
+        </p>
+        <p>Date: {{weather.title.data.list[0].dt_txt}}</p>
+        {{icon}}
+        <p>Weather Condition: {{weather.title.data.list[0].weather[0].description}}</p>
+        <p> Temperature: {{weather.title.data.list[0].main.temp}}</p>
+        <p>High: {{weather.title.data.list[0].main["temp_max"]}}</p>
+        <p> Low: {{weather.title.data.list[0].main["temp_min"]}}</p>
+        <p> Humidity:  {{weather.title.data.list[0].main.humidity}}%</p>
         <div class="caption">
-    
+
         </div>
       </div>
     </div>
   </div>
 
-  
 
+<!-- {{weather.title}} -->
+<!-- use this here -->
+<!-- {{weather.title.data.list[0]}} -->
+<!-- {{weather.title.data.list[0].main}} -->
 
   <nav class="navbar navbar-inverse navbar-fixed-bottom">
     <p class="text-center">Copyright Noreen M 2018</p>

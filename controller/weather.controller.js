@@ -48,7 +48,7 @@
         function getDefaultWeather() {
             return WeatherService.getDefaultWeather().then(function(data){
                 vm.title = data;
-                vm.icon  = "http://openweathermap.org/img/w/"+data.weather[0].icon +".png"
+                // vm.icon  = "http://openweathermap.org/img/w/"+title.data.list[0].weather[0].icon +".png"
                vm.projectInfo = {
                    heading: "Angular JS weather App",
                    subheading1: "Using open weather map API"
