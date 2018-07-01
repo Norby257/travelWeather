@@ -53,6 +53,22 @@
                    heading: "Angular JS weather App",
                    subheading1: "Using open weather map API"
                }
+               //   push data into array 
+               vm.forecasts.push(vm.title.data.list);
+            //    console.log(vm.forecasts);
+               console.log(vm.forecasts); // output: [Array(40)]
+               console.log(vm.forecasts[0][0]); // output {dt: " ", prop: val, etc: etc}
+
+               //   cache the vm.forecasts[0][0]?
+               //   loop thru array, grab every eighth element 
+               //  
+
+               //   push that to a new array called 5-day forecast
+
+               //   then we do ng-repeat on that new array 
+
+               //   I am confident a more efficient solution is out there
+               //   doing this for now bc it works, then will make it right, make it fast 
             });
         }
 
