@@ -84,22 +84,20 @@
 
   <div class="row">
     <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <p>Date</p>
-        <p> High: {{weather.title.temp_max}}</p>
-        <p> Low: {{weather.title.temp_min}}</p>
-        <p> Humidity: {{weather.title.humidity}}</p>
+      <div class="thumbnail" class="text-center">
+        <p>Date: {{weather.title.dt | date:'MM/dd/yyyy'}}</p>
+        <!-- <p>Icon: {{weather.title.weather[0].icon}}</p> -->
+        <p><img ng-src="{{weather.icon}}" /></p>
+        <p>Description: {{weather.title.weather[0].description}}</p>
+        <p> High: {{weather.title.main.temp_max}}</p>
+        <p> Low: {{weather.title.main.temp_min}}</p>
+        <p> Humidity: {{weather.title.main.humidity}}</p>
   
         
         
        
         <div class="caption">
-          <a href="#">
-            <img class="media-object" src="https://openweathermap.org/img/w/{{item.weather[0].icon}}.png" alt="" style="max-width: 50px;"> </a>
-          <!-- <p>{{response.data.weather[0].description}} </p>
-          <p>{{ response.data.main.temp_max}} </p>
-          <p>{{ response.data.main.temp_min}} </p>
-          <p>{{ response.data.main.humidity}} </p> -->
+    
         </div>
       </div>
     </div>
