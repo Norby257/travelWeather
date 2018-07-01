@@ -35,8 +35,7 @@
         function getWeather() {
             return WeatherService.getWeather().then(function (data) {
                 vm.title = data;
-                vm.items = {};
-                vm.items = response.list;
+              
             });
         }
 
@@ -49,6 +48,10 @@
         function getDefaultWeather() {
             return WeatherService.getDefaultWeather().then(function(data){
                 vm.title = data;
+               vm.projectInfo = {
+                   heading: "Angular JS weather App",
+                   subheading1: "Using open weather map API"
+               }
             });
         }
 

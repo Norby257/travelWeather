@@ -73,7 +73,10 @@
     </form>
 
     
-    {{weather.title}}
+   
+    {{weather.projectInfo.heading}}
+    {{weather.projectInfo.subheading1}}
+    {{weather.title.temp}}
   </div>
 
   <!-- div for the results to appear; using bootstrap thumbnail -->
@@ -82,16 +85,21 @@
   <div class="row">
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
+        <p>Date</p>
+        <p> High: {{weather.title.temp_max}}</p>
+        <p> Low: {{weather.title.temp_min}}</p>
+        <p> Humidity: {{weather.title.humidity}}</p>
+  
         
+        
+       
         <div class="caption">
-          <p>Date/time here (convert from unix time)</p>
-          <p>{{response.data.weather[0].icon}}</p>
           <a href="#">
             <img class="media-object" src="https://openweathermap.org/img/w/{{item.weather[0].icon}}.png" alt="" style="max-width: 50px;"> </a>
-          <p>{{response.data.weather[0].description}} </p>
+          <!-- <p>{{response.data.weather[0].description}} </p>
           <p>{{ response.data.main.temp_max}} </p>
           <p>{{ response.data.main.temp_min}} </p>
-          <p>{{ response.data.main.humidity}} </p>
+          <p>{{ response.data.main.humidity}} </p> -->
         </div>
       </div>
     </div>

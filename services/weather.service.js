@@ -40,7 +40,7 @@
           "https://api.openweathermap.org/data/2.5/weather?zip=60661,us&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf"
         )
         .then(function(response) {
-          return response;
+          return response.data.main;
         })
         .catch(function() {
           return new Error("Failed to get Weather data");
