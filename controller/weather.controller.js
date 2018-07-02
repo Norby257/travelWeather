@@ -53,8 +53,10 @@
         // vm.icon  = "http://openweathermap.org/img/w/"+title.data.list[0].weather[0].icon +".png"
   
         //   find a more efficient way to do this so i don't have to type as much
+        //  this should be a function
         //   reduce risk of error by less typing
           //   push data into array
+    
         vm.forecasts.push(vm.title.data.list);
         console.log(vm.forecasts); // output: [Array(40)]
         console.log(vm.forecasts[0]); // array 
