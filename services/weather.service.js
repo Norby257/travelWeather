@@ -40,7 +40,11 @@
           "https://api.openweathermap.org/data/2.5/forecast?zip=60661,us&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf"
         )
         .then(function(response) {
+         // loop thru array, incrementing by eight to 
+         // get the five day forecast
+        
           return response;
+       
         })
         .catch(function() {
           return new Error("Failed to get Weather data");
