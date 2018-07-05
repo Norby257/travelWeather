@@ -20,6 +20,22 @@
         .catch(function() {
           return new Error("Failed to get Weather data");
         });
+
+    /*  
+    function localWeather
+    //  set up service relationship call here 
+        navigator.geolocation.getCurrentPosition((pos) => {
+          this.location = geo.coords;
+          console.log(this.location);
+          const lat = this.location.latitude;
+          const lon = this.location.longitude;
+          this.weatherService.localWeather(lat, lon).subscribe(
+            (data) => {
+              console.log(data);
+            })
+        })
+
+    */ 
     }
 
     function getCityWeather() {

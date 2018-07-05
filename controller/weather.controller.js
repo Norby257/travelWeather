@@ -42,14 +42,12 @@
         // vm.icon  = "http://openweathermap.org/img/w/"+title.data.list[0].weather[0].icon +".png"
 
         //  this should be a function
-        //   push data into array
-        // have to do the equivalent of for each -
+      
         vm.forecasts.push(vm.title.data.list);
         console.log(vm.forecasts); // output: [Array(40)]
         console.log(vm.forecasts[0]); // array
         console.log(vm.forecasts[0].length); //
         //   loop thru array, grab every eighth element
-        //  these are objects
         //   push the nested objects to a new array called 5-day forecast. it should contain an object for each day,
         //  so there should be five elements total (i.e.) Mon, Tues, Wed, Thurs, Fri, Sat
         var fiveDayForecast = [];
@@ -63,7 +61,6 @@
           // console.log(vm.forecasts[0][i].main)
         }
         //  just want to quickly loop over this new array 
-        //  to see what is up in it 
         console.log(fiveDayForecast);
 
         for (let i = 0; i < fiveDayForecast.length; i++) {
@@ -74,6 +71,16 @@
         //  ng-repeat  forecast in forecasts 
         //   I am confident a more efficient solution is out there - doing this for now bc it works, then will make it right, make it fast
       });
+      //  do this with out imprting 
+      // function onSubmit(weatherForm) {
+      //   //  get data from form 
+      //   // console.log(weatherForm);
+      //   //  pass it into API call 
+      //   //  then clear the array so we don't 
+      //   //  continue to add elements to the array 
+      //   this.WeatherService(weatherForm.value.city).response(data)
+      //   console.log(data)
+      // };
     }
   }
 })();
