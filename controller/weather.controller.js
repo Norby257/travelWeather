@@ -24,6 +24,17 @@
       console.log("activated Weather View");
     }
 
+    // if (captureUserLocation) {
+    //   getWeather();
+    // } else {
+    //   getDefaultWeather();
+    // }
+
+    function captureUserLocation() {
+     return WeatherService.getUserLocation().then(function(data){
+     })
+    }
+
     function getWeather() {
       return WeatherService.getWeather().then(function(data) {
         vm.title = data;
