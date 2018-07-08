@@ -9,6 +9,6 @@ Going on Vacation? Check the weather of your destination!
 To use the app, simply clone the repo, run `npm install` and use `npx live-server` to stat the App. 
 
 
-Authors 
+# Authors 
 
 Noreen M 
