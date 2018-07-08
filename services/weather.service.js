@@ -3,11 +3,12 @@
 
   angular.module("App").service("WeatherService", ["$http", "$window", WeatherService]);
 
-  function WeatherService($http) {
+  function WeatherService($http, $window) {
     var self = this;
     self.getWeather = getWeather;
     self.getCityWeather = getCityWeather;
     self.getDefaultWeather = getDefaultWeather;
+    self.getUserLocation = getUserLocation;
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?";
     var apiKey = "72f5cf872643336bf96167d5dda813cf";
 
@@ -16,23 +17,22 @@
       if (!$window.navigator.geolocation) {
         return ('Gelocation not supported by this browser');
       } else {
-        $window.navigator.geolocation.getCurrentPosition(
-          function(position) {
-            this.location = geo.coords;
-            console.log(this.location);
-            var lat = this.location.latitude;
-            var lon = this.location.longitude;
+        function success(pos) {
+          var crd = pos.coords;
+          var lat = crd.latitude;
+          var lon = crd.longitude;
+          console.log(lat);
+          console.log(lon);
+          return crd;
+        }
+        function error(err) {
+          console.ward(`ERROR(${err.code}): ${err.message}`);
+        }
 
-
-          },
-         function(err) {
-           return ('Error');
-         }
-        )
+        $window.navigator.geolocation.getCurrentPosition(success, error);
+     
       }
-      return {
-        getCurrentPosition: getCurrentPosition
-      }
+    
 
     }
 

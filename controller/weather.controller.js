@@ -16,6 +16,7 @@
     vm.title = "Forecast";
 
     activate();
+    captureUserLocation();
     // getWeather();
     // getCityWeather();
     getDefaultWeather();
@@ -74,6 +75,7 @@
           //    console.log(vm.forecasts[0][i].weather[0]);
           // console.log(vm.forecasts[0][i].main)
         }
+
         //  just want to quickly loop over this new array 
         console.log(fiveDayForecast);
 
