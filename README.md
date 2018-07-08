@@ -4,11 +4,9 @@ This is an app built in Angular JS.
 
 Going on Vacation? Check the weather of your destination! 
 
-Installation 
+# How to Use 
 
-All you need is a browser such as chrome. Simply donwload the repo. 
-
-To start the app, navigatve to the root directory and run `npx live-server`.
+To use the app, simply clone the repo, run `npm install` and use `npx live-server` to stat the App. 
 
 
 Authors 
