@@ -24,6 +24,7 @@
       console.log("activated Weather View");
     }
 
+    //  decision logic 
     // if (captureUserLocation) {
     //   getWeather();
     // } else {
@@ -52,7 +53,8 @@
         vm.title = data;
         // vm.icon  = "http://openweathermap.org/img/w/"+title.data.list[0].weather[0].icon +".png"
 
-        //  this should be a function
+        //  this should be a function aka,
+        //  get forecast can be defined earlier so it can be accessed 
       
         vm.forecasts.push(vm.title.data.list);
         console.log(vm.forecasts); // output: [Array(40)]
@@ -61,6 +63,7 @@
         //   loop thru array, grab every eighth element
         //   push the nested objects to a new array called 5-day forecast. it should contain an object for each day,
         //  so there should be five elements total (i.e.) Mon, Tues, Wed, Thurs, Fri, Sat
+        //   | date 'yymmdd' 
         var fiveDayForecast = [];
         for (let i = 0; i < vm.forecasts[0].length; i += 8) {
           console.log(vm.forecasts[0][i]);
@@ -80,7 +83,6 @@
 
         //   then we do ng-repeat on that new array (In HTML file)
         //  ng-repeat  forecast in forecasts 
-        //   I am confident a more efficient solution is out there - doing this for now bc it works, then will make it right, make it fast
       });
       //  do this with out imprting 
       // function onSubmit(weatherForm) {
@@ -96,4 +98,3 @@
   }
 })();
 
-//
