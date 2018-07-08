@@ -67,14 +67,10 @@
 
 
     <!-- input form -->
-    <form name="frm">
-      <input type="text" placeholder="city name" ng-model="cityInput">
-      <button type="submit">Go! </button>
-    </form>
-
-
-
-    {{weather.projectInfo.heading}} {{weather.projectInfo.subheading1}} {{weather.title.temp}}
+    <form (ng-submit)="onSubmit(form)" #form=ngModel>
+   <input type="text" ngModel name="city" placeholder="name of a city">
+   <button name="button">GO</button>
+  </form>
   </div>
 
   <!-- div for the results to appear; using bootstrap thumbnail -->
@@ -83,6 +79,8 @@
   <div class="row">
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail" class="text-center">
+        <!-- this is the repeating info for now -->
+        <div ng-repeat="day in weather.fiveDayForecast[i]">
         <!-- <p>Icon: {{weather.title.weather[0].icon}}</p> -->
         <p>
           <img ng-src="{{weather.icon}}" />
@@ -94,9 +92,7 @@
         <p>High: {{weather.title.data.list[0].main["temp_max"]}}</p>
         <p> Low: {{weather.title.data.list[0].main["temp_min"]}}</p>
         <p> Humidity:  {{weather.title.data.list[0].main.humidity}}%</p>
-        <div class="caption">
-
-        </div>
+      </div>
       </div>
     </div>
   </div>
