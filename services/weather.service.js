@@ -28,12 +28,12 @@
           console.warn(`ERROR(${err.code}): ${err.message}`);
         }
 
-        //  as per console log, output of navigator.gelocation function is undefined. 
         // 1 googling to see if there is a way of doing this without $q
-        //  2 is there a location service in angular 
+        //  2 or if there is an alternative way of navigator.gelocation 
         //  since this isn't an $http req per say 
+        //  as per console log, output of navigator.gelocation function is undefined. 
 
-       console.log ($window.navigator.geolocation.getCurrentPosition(success, error));
+        $window.navigator.geolocation.getCurrentPosition(success, error);
         
       }
 

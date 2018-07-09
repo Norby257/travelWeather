@@ -16,7 +16,7 @@
     vm.title = "Forecast";
 
     activate();
-    captureUserLocation();
+    // captureUserLocation();
     // getWeather();
     // getCityWeather();
     getDefaultWeather();
