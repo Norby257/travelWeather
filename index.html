@@ -80,7 +80,8 @@
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail" class="text-center">
         <!-- this is the repeating info for now -->
-        <div ng-repeat="day in weather.fiveDayForecast[i]">
+        <!-- ng-repeat="day in weather.fiveDayForecast[i]" -->
+        <div >
         <!-- <p>Icon: {{weather.title.weather[0].icon}}</p> -->
         <p>
           <img ng-src="{{weather.icon}}" />
@@ -109,9 +110,7 @@
 
     </div>
   </nav>
-  <!-- geolocation -->
-  <script src="scripts/geolocation.js"></script>
-  <!-- module for home page -->
+
 
   <!-- link to Angular CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
