@@ -4,12 +4,16 @@
     .controller("weatherController", [
       "WeatherService",
       "$scope",
-      weatherController
+      weatherController,
+
     ]);
+
+  
   function weatherController(WeatherService, $scope) {
-    // $scope.cityInput = {
-    //     city: ""
-    // };
+    $scope.submit = function() {
+      console.log($scope.cityName);
+    }
+  
     var vm = this;
     vm.forecasts = [];
     vm.getWeather = getWeather;
