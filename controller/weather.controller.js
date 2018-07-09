@@ -32,10 +32,13 @@
     //   getDefaultWeather();
     // }
 
+
+
     function captureUserLocation() {
-     return WeatherService.getUserLocation().then(function(data){
-     })
-    }
+       return WeatherService.getUserLocation().then(function(data){
+         vm.crd = data;
+       })
+      }
 
     function getWeather() {
       return WeatherService.getWeather().then(function(data) {

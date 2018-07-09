@@ -3,7 +3,7 @@
 
   angular.module("App").service("WeatherService", ["$http", "$window", WeatherService]);
 
-  function WeatherService($http, $window) {
+  function WeatherService($http,  $window) {
     var self = this;
     self.getWeather = getWeather;
     self.getCityWeather = getCityWeather;
@@ -11,7 +11,6 @@
     self.getUserLocation = getUserLocation;
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?";
     var apiKey = "72f5cf872643336bf96167d5dda813cf";
-
 
     function getUserLocation() {
       if (!$window.navigator.geolocation) {
@@ -26,15 +25,23 @@
           return crd;
         }
         function error(err) {
-          console.ward(`ERROR(${err.code}): ${err.message}`);
+          console.warn(`ERROR(${err.code}): ${err.message}`);
         }
 
-        $window.navigator.geolocation.getCurrentPosition(success, error);
-     
-      }
-    
+        //  as per console log, output of navigator.gelocation function is undefined. 
+        // 1 googling to see if there is a way of doing this without $q
+        //  2 is there a location service in angular 
+        //  since this isn't an $http req per say 
 
+       console.log ($window.navigator.geolocation.getCurrentPosition(success, error));
+        
+      }
+
+    
     }
+
+
+
 
     function getWeather() {
       return $http
