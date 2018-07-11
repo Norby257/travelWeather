@@ -62,7 +62,7 @@
       return $http
         .get(
           // "https://api.openweathermap.org/data/2.5/weather?q=Raba&units=imperiat&APPID=72f5cf872643336bf96167d5dda813cf"
-          `https://api.openweathermap.org/data/2.5/weather?q=${$scope.cityName}&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf`
+          `https://api.openweathermap.org/data/2.5/weather?q=${cityName},us&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf`
           
         )
         .then(function(response) {
