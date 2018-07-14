@@ -1,9 +1,9 @@
 (function() {
   "use strict";
 
-  angular.module("App").service("WeatherService", ["$http", "$window", WeatherService]);
+  angular.module("App").service("WeatherService", ["$http", "$window", "$log", WeatherService]);
 
-  function WeatherService($http,  $window) {
+  function WeatherService($http,  $window, $log) {
     var self = this;
     self.getWeather = getWeather;
     self.getCityWeather = getCityWeather;
@@ -20,12 +20,12 @@
           var crd = pos.coords;
           var lat = crd.latitude;
           var lon = crd.longitude;
-          console.log(lat);
-          console.log(lon);
+          $log.log(lat);
+          $log.log(lon);
           return crd;
         }
         function error(err) {
-          console.warn(`ERROR(${err.code}): ${err.message}`);
+          $log.warn(`ERROR(${err.code}): ${err.message}`);
         }
 
         // 1 googling to see if there is a way of doing this without $q
