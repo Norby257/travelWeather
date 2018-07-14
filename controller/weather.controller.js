@@ -22,7 +22,7 @@
       $log.log(cityName);
     }
 
-    //  commenting out getUsrLocation since while it does work 
+    //  commenting out getUserLocation since while it does work 
     //  it throws an issue bc Cannot read property 'then' of undefined
 
   
