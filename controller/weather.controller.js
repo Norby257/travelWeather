@@ -22,7 +22,9 @@
       $log.log(cityName);
     }
 
-    //  I think that getting user location should go up here too 
+    //  commenting out getUsrLocation since while it does work 
+    //  it throws an issue bc Cannot read property 'then' of undefined
+
   
     var vm = this;
     vm.forecasts = [];
@@ -30,7 +32,7 @@
     vm.title = "Forecast";
 
     activate();
-    // captureUserLocation();
+    captureUserLocation();
     // getWeather();
     // getCityWeather();
     getDefaultWeather();
@@ -49,9 +51,9 @@
 
 
     function captureUserLocation() {
-       return WeatherService.getUserLocation().then(function(data){
-         vm.crd = data;
-       })
+       return WeatherService.getUserLocation();
+       vm.title = data;
+       $log.log(data);
       }
 
     function getWeather() {

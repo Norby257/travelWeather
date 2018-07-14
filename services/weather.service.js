@@ -49,6 +49,7 @@
           `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=-${lon}&units=imperia&APPID=72f5cf872643336bf96167d5dda813cf`
         )
         .then(function(response) {
+          $log.log(response);
           return response;
         })
         .catch(function() {
