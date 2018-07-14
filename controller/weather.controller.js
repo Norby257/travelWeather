@@ -4,21 +4,22 @@
     .controller("weatherController", [
       "WeatherService",
       "$scope",
+      "$log",
       weatherController,
 
     ]);
 
   
-  function weatherController(WeatherService, $scope) {
-
+  function weatherController(WeatherService, $scope, $log) {
+    $scope.$log = $log;
     $scope.submit = function() {
-      console.log($scope.cityName);
+      $log.log($scope.cityName);
       //  now figure out how to pass this to service
       //  initialize model in the controller 
       //  call the service 
       //  see service for the function that is used to make API calls
       var cityName = $scope.cityName;
-      console.log(cityName);
+      $log.log(cityName);
     }
 
     //  I think that getting user location should go up here too 
@@ -35,7 +36,7 @@
     getDefaultWeather();
 
     function activate() {
-      console.log("activated Weather View");
+      $log.log("activated Weather View");
     }
 
     //  decision logic 
@@ -74,16 +75,16 @@
         //  get forecast can be defined earlier so it can be accessed 
       
         vm.forecasts.push(vm.title.data.list);
-        console.log(vm.forecasts); // output: [Array(40)]
-        console.log(vm.forecasts[0]); // array
-        console.log(vm.forecasts[0].length); //
+        $log.log(vm.forecasts); // output: [Array(40)]
+        $log.log(vm.forecasts[0]); // array
+        $log.log(vm.forecasts[0].length); //
         //   loop thru array, grab every eighth element
         //   push the nested objects to a new array called 5-day forecast. it should contain an object for each day,
         //  so there should be five elements total (i.e.) Mon, Tues, Wed, Thurs, Fri, Sat
         //   | date 'yymmdd' 
         var fiveDayForecast = [];
         for (let i = 0; i < vm.forecasts[0].length; i += 8) {
-          console.log(vm.forecasts[0][i]);
+          $log.log(vm.forecasts[0][i]);
           fiveDayForecast.push(vm.forecasts[0][i]);
           console.log(fiveDayForecast);
 
@@ -93,10 +94,10 @@
         }
 
         //  just want to quickly loop over this new array 
-        console.log(fiveDayForecast);
+        $log.log(fiveDayForecast);
 
         for (let i = 0; i < fiveDayForecast.length; i++) {
-          console.log(fiveDayForecast[i]);
+          $log.log(fiveDayForecast[i]);
         }
 
         //   then we do ng-repeat on that new array (In HTML file)
