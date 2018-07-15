@@ -10,6 +10,7 @@
         var apiKey = "72f5cf872643336bf96167d5dda813cf";
 
         function getWeatherByCity() {
+            // this.cityName = $scope.cityName;
             return $http
             .get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName},us&units=imperial&${apiKey}`
         )
