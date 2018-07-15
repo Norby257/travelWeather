@@ -12,15 +12,12 @@
   
   function weatherController(WeatherService, $scope, $log) {
     $scope.$log = $log;
-    $scope.submit = function() {
-      $log.log($scope.cityName);
+   
       //  now figure out how to pass this to service
       //  initialize model in the controller 
       //  call the service 
       //  see service for the function that is used to make API calls
-      var cityName = $scope.cityName;
-      $log.log(cityName);
-    }
+   
 
     //  commenting out getUserLocation since while it does work 
     //  it throws an issue bc Cannot read property 'then' of undefined

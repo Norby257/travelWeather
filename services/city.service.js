@@ -10,7 +10,15 @@
         var apiKey = "72f5cf872643336bf96167d5dda813cf";
 
         function getWeatherByCity() {
-            return true;
+            return $http
+            .get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName},us&units=imperial&${apiKey}`
+        )
+        .then(function(response){
+            return response;
+        })
+        .catch(function() {
+           return new Error("Failed to get weather data");
+        })
         }
 
         

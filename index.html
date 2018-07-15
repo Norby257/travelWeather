@@ -63,15 +63,15 @@
   </div>
 
 
-  <div>
+  <div ng-controller="cityController as city">
 
 
     <!-- input form -->
     <form ng-submit="submit()">
-      <input type="text" ng-model="cityName" id="submit" value="submit" placeholder="Forecast by City" ng-controller="cityController as city"> 
-      <button ng-click="getCityWeather()"> Get Forecast </button>
+      <input type="text" ng-model="cityName" id="submit" value="submit" placeholder="Forecast by City"> 
+      <button ng-click="getWeatherByCity()"> Get Forecast </button>
     </form>
-    <h1>You entered {{cityName}}</h1>
+    <h1>Forecast for {{cityName}}</h1>
   </div>
 
   <!-- div for the results to appear; using bootstrap thumbnail -->
