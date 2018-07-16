@@ -4,24 +4,24 @@
     .controller("weatherController", [
       "WeatherService",
       "$scope",
+      "$log",
       weatherController,
 
     ]);
 
   
-  function weatherController(WeatherService, $scope) {
-
-    $scope.submit = function() {
-      console.log($scope.cityName);
+  function weatherController(WeatherService, $scope, $log) {
+    $scope.$log = $log;
+   
       //  now figure out how to pass this to service
       //  initialize model in the controller 
       //  call the service 
       //  see service for the function that is used to make API calls
-      var cityName = $scope.cityName;
-      console.log(cityName);
-    }
+   
 
-    //  I think that getting user location should go up here too 
+    //  commenting out getUserLocation since while it does work 
+    //  it throws an issue bc Cannot read property 'then' of undefined
+
   
     var vm = this;
     vm.forecasts = [];
@@ -29,13 +29,13 @@
     vm.title = "Forecast";
 
     activate();
-    // captureUserLocation();
+    captureUserLocation();
     // getWeather();
     // getCityWeather();
     getDefaultWeather();
 
     function activate() {
-      console.log("activated Weather View");
+      $log.log("activated Weather View");
     }
 
     //  decision logic 
@@ -48,9 +48,9 @@
 
 
     function captureUserLocation() {
-       return WeatherService.getUserLocation().then(function(data){
-         vm.crd = data;
-       })
+       return WeatherService.getUserLocation();
+       vm.title = data;
+       $log.log(data);
       }
 
     function getWeather() {
@@ -74,16 +74,16 @@
         //  get forecast can be defined earlier so it can be accessed 
       
         vm.forecasts.push(vm.title.data.list);
-        console.log(vm.forecasts); // output: [Array(40)]
-        console.log(vm.forecasts[0]); // array
-        console.log(vm.forecasts[0].length); //
+        $log.log(vm.forecasts); // output: [Array(40)]
+        $log.log(vm.forecasts[0]); // array
+        $log.log(vm.forecasts[0].length); //
         //   loop thru array, grab every eighth element
         //   push the nested objects to a new array called 5-day forecast. it should contain an object for each day,
         //  so there should be five elements total (i.e.) Mon, Tues, Wed, Thurs, Fri, Sat
         //   | date 'yymmdd' 
         var fiveDayForecast = [];
         for (let i = 0; i < vm.forecasts[0].length; i += 8) {
-          console.log(vm.forecasts[0][i]);
+          $log.log(vm.forecasts[0][i]);
           fiveDayForecast.push(vm.forecasts[0][i]);
           console.log(fiveDayForecast);
 
@@ -93,10 +93,10 @@
         }
 
         //  just want to quickly loop over this new array 
-        console.log(fiveDayForecast);
+        $log.log(fiveDayForecast);
 
         for (let i = 0; i < fiveDayForecast.length; i++) {
-          console.log(fiveDayForecast[i]);
+          $log.log(fiveDayForecast[i]);
         }
 
         //   then we do ng-repeat on that new array (In HTML file)
