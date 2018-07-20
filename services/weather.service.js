@@ -23,7 +23,14 @@
           $log.log(lat);
           $log.log(lon);
           return crd;
+       
         }
+
+       
+        // keep the geo in the service 
+        //  remember to put the do_something as a callback to API
+        //  
+        
         function error(err) {
           $log.warn(`ERROR(${err.code}): ${err.message}`);
         }
@@ -34,14 +41,13 @@
         //  as per console log, output of navigator.gelocation function is undefined. 
 
         $window.navigator.geolocation.getCurrentPosition(success, error);
+        // getWeather();
+   
         
       }
 
     
     }
-
-
-
 
     function getWeather() {
       return $http
@@ -59,7 +65,8 @@
 
     }
 
-    function getCityWeather() {
+
+    function getCityWeather(cityName) {
       return $http
         .get(
           // "https://api.openweathermap.org/data/2.5/weather?q=Raba&units=imperiat&APPID=72f5cf872643336bf96167d5dda813cf"
