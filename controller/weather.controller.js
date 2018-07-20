@@ -38,7 +38,7 @@
 
     activate();
     captureUserLocation();
-    // getWeather();
+    getWeather();
     // getCityWeather();
     getDefaultWeather();
 

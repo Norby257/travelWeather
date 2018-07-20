@@ -14,6 +14,7 @@
 
     function getUserLocation() {
       if (!$window.navigator.geolocation) {
+        //  call default function here?
         return ('Gelocation not supported by this browser');
       } else {
         function success(pos) {
@@ -21,12 +22,9 @@
           var lat = crd.latitude;
           var lon = crd.longitude;
           $log.log(lat);
-          $log.log(lon);
-          return crd;
-       
+          $log.log(lon);      
         }
 
-       
         // keep the geo in the service 
         //  remember to put the do_something as a callback to API
         //  
@@ -35,24 +33,16 @@
           $log.warn(`ERROR(${err.code}): ${err.message}`);
         }
 
-        // 1 googling to see if there is a way of doing this without $q
-        //  2 or if there is an alternative way of navigator.gelocation 
-        //  since this isn't an $http req per say 
-        //  as per console log, output of navigator.gelocation function is undefined. 
-
-        $window.navigator.geolocation.getCurrentPosition(success, error);
-        // getWeather();
-   
-        
+        $window.navigator.geolocation.getCurrentPosition(success, error);        
       }
 
     
     }
 
-    function getWeather() {
+    function getWeather(lat, lon) {
       return $http
         .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=-${lon}&units=imperia&APPID=72f5cf872643336bf96167d5dda813cf`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf`
         )
         .then(function(response) {
           $log.log(response);
@@ -69,7 +59,6 @@
     function getCityWeather(cityName) {
       return $http
         .get(
-          // "https://api.openweathermap.org/data/2.5/weather?q=Raba&units=imperiat&APPID=72f5cf872643336bf96167d5dda813cf"
           `https://api.openweathermap.org/data/2.5/weather?q=${cityName},us&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf`
           
         )
