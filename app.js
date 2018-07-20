@@ -1,5 +1,5 @@
 (function() {
-angular.module('App', ['ngRoute'])
+angular.module('App', [])
 //  going to need thre controllers 
 //  one for weather 
 //  one for getting the city input 
