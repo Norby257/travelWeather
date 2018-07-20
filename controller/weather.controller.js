@@ -9,11 +9,25 @@
 
     ]);
 
-  
+  //  this is the parent controller
+  //  pass values from the parent controller 
+  //  to child controllers 
   function weatherController(WeatherService, $scope, $log) {
     $scope.$log = $log;
+//  making the cityName from input avail to child controllers
+//  this should be fn declaration instead of fn expr
+    $scope.submit = function() {
+      var cityName = $scope.cityName;
+      console.log(cityName);
+      return cityName;
+      
+    }
+
    
-      //  now figure out how to pass this to service
+    // submit();
+   
+      //  now figure out how to pass this to service - this is just like react, where parent component 
+      // passes props downward to child(ren) component(s)
       //  initialize model in the controller 
       //  call the service 
       //  see service for the function that is used to make API calls
@@ -29,7 +43,7 @@
     vm.title = "Forecast";
 
     activate();
-    captureUserLocation();
+    // captureUserLocation();
     // getWeather();
     // getCityWeather();
     getDefaultWeather();
@@ -47,10 +61,12 @@
 
 
 
-    function captureUserLocation() {
+    function captureUserLocation(crd) {
        return WeatherService.getUserLocation();
        vm.title = data;
        $log.log(data);
+       $log.log(crd);
+       return data;
       }
 
     function getWeather() {
