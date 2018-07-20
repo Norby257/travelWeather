@@ -63,11 +63,11 @@
   </div>
 
 
-  <div ng-controller="cityController as city">
+  <div>
 
 
     <!-- input form -->
-    <form ng-submit="submit()">
+    <form ng-submit="weather.getCityWeather()">
       <input type="text" ng-model="cityName" id="submit" value="submit" placeholder="Forecast by City"> 
       <button ng-click="getWeatherByCity()"> Get Forecast </button>
     </form>
@@ -115,16 +115,11 @@
 
   <!-- link to Angular CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-<!-- link to angular router to use UI-ROUTER -->
-<!-- <script> src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.18/angular-ui-router.js.map"</script> -->
 
-<script src="https://code.angularjs.org/1.5.6/angular-route.min.js"></script>
 
   <script src="app.js"></script>
   <script src="services/weather.service.js"></script>
-  <script src="services/city.service.js"></script>
   <script src="controller/weather.controller.js"></script>
-  <script src="controller/city.controller.js"></script>
 
 
 </body>
