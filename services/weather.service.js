@@ -14,7 +14,8 @@
 
     function getUserLocation() {
       if (!$window.navigator.geolocation) {
-        //  call default function here?
+        //  call default function here if error 
+        // getDefaultWeather();
         return ('Gelocation not supported by this browser');
       } else {
         function success(pos) {
@@ -23,7 +24,8 @@
           var lon = crd.longitude;
           $log.log(lat);
           $log.log(lon); 
-          return $http(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf`)
+          return $http
+          .get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf`)
           .then(function(response){
             $log.log(response);
             return response;
@@ -38,10 +40,6 @@
 
     
     }
-
-  
-// https://code.angularjs.org/1.5.6/docs/error/$http/badreq?p0=https:%2F%2Fapi.openweathermap.org%2Fdata%2F2.5%2Fweather%3Flat%3D41.8659317%26lon%3D-87.62150009999999%26units%3Dimperial%26APPID%3D72f5cf872643336bf96167d5dda813cf
-
     function getCityWeather(cityName) {
       return $http
         .get(
