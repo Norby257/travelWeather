@@ -32,13 +32,13 @@
     //   weatherCtrl rather than just weather
     var vm = this;
     vm.forecasts = [];
-    vm.getWeather = getWeather;
+    // vm.getWeather = getWeather;
     vm.getCityWeather = getCityWeather;
     vm.title = "Forecast";
 
     activate();
     captureUserLocation();
-    getWeather();
+    // getWeather();
     // getCityWeather();
     getDefaultWeather();
 
@@ -61,11 +61,11 @@
       return data;
     }
 
-    function getWeather() {
-      return WeatherService.getWeather().then(function(data) {
-        vm.title = data;
-      });
-    }
+    // function getWeather() {
+    //   return WeatherService.getWeather().then(function(data) {
+    //     vm.title = data;
+    //   });
+    // }
 
     function getCityWeather() {
       return WeatherService.getCityWeather($scope.cityName).then(function(data) {

@@ -5,7 +5,7 @@
 
   function WeatherService($http,  $window, $log) {
     var self = this;
-    self.getWeather = getWeather;
+    // self.getWeather = getWeather;
     self.getCityWeather = getCityWeather;
     self.getDefaultWeather = getDefaultWeather;
     self.getUserLocation = getUserLocation;
@@ -22,13 +22,13 @@
           var lat = crd.latitude;
           var lon = crd.longitude;
           $log.log(lat);
-          $log.log(lon);      
-        }
-
-        // keep the geo in the service 
-        //  remember to put the do_something as a callback to API
-        //  
-        
+          $log.log(lon); 
+          return $http(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf`)
+          .then(function(response){
+            $log.log(response);
+            return response;
+          })     
+        }    
         function error(err) {
           $log.warn(`ERROR(${err.code}): ${err.message}`);
         }
@@ -39,22 +39,8 @@
     
     }
 
-    function getWeather(lat, lon) {
-      return $http
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf`
-        )
-        .then(function(response) {
-          $log.log(response);
-          return response;
-        })
-        .catch(function() {
-          return new Error("Failed to get Weather data");
-        });
-
-
-    }
-
+  
+// https://code.angularjs.org/1.5.6/docs/error/$http/badreq?p0=https:%2F%2Fapi.openweathermap.org%2Fdata%2F2.5%2Fweather%3Flat%3D41.8659317%26lon%3D-87.62150009999999%26units%3Dimperial%26APPID%3D72f5cf872643336bf96167d5dda813cf
 
     function getCityWeather(cityName) {
       return $http
