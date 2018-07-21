@@ -13,45 +13,25 @@
   //  to child controllers
   function weatherController(WeatherService, $scope, $log) {
     $scope.$log = $log;
-    //  making the cityName from input avail to child controllers
-    //  this should be fn declaration instead of fn expr
- 
-
-
-    //  now figure out how to pass this to service - this is just like react, where parent component
-    // passes props downward to child(ren) component(s)
-    //  initialize model in the controller
-    //  call the service
-    //  see service for the function that is used to make API calls
-
-    //  commenting out getUserLocation since while it does work
-    //  it throws an issue bc Cannot read property 'then' of undefined
     // controller -handle user interaction 
     //   routing - camelCase Ctrl 
     //  route: Ctrl 
     //   weatherCtrl rather than just weather
     var vm = this;
     vm.forecasts = [];
-    vm.getWeather = getWeather;
+    // vm.getWeather = getWeather;
     vm.getCityWeather = getCityWeather;
     vm.title = "Forecast";
 
     activate();
     captureUserLocation();
-    getWeather();
+    // getWeather();
     // getCityWeather();
     getDefaultWeather();
 
     function activate() {
       $log.log("activated Weather View");
     }
-
-    //  decision logic
-    // if (captureUserLocation) {
-    //   getWeather();
-    // } else {
-    //   getDefaultWeather();
-    // }
 
     function captureUserLocation(crd) {
       return WeatherService.getUserLocation();
@@ -61,18 +41,10 @@
       return data;
     }
 
-    function getWeather() {
-      return WeatherService.getWeather().then(function(data) {
-        vm.title = data;
-      });
-    }
-
     function getCityWeather() {
       return WeatherService.getCityWeather($scope.cityName).then(function(data) {
         vm.weather = data;
         $log.log(vm.weather);
-        
-
       });
     }
 
@@ -108,16 +80,6 @@
         //   then we do ng-repeat on that new array (In HTML file)
         //  ng-repeat  forecast in forecasts
       });
-      //  do this with out imprting
-      // function onSubmit(weatherForm) {
-      //   //  get data from form
-      //   // console.log(weatherForm);
-      //   //  pass it into API call
-      //   //  then clear the array so we don't
-      //   //  continue to add elements to the array
-      //   this.WeatherService(weatherForm.value.city).response(data)
-      //   console.log(data)
-      // };
     }
   }
 })();

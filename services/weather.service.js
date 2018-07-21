@@ -5,7 +5,7 @@
 
   function WeatherService($http,  $window, $log) {
     var self = this;
-    self.getWeather = getWeather;
+    // self.getWeather = getWeather;
     self.getCityWeather = getCityWeather;
     self.getDefaultWeather = getDefaultWeather;
     self.getUserLocation = getUserLocation;
@@ -14,7 +14,8 @@
 
     function getUserLocation() {
       if (!$window.navigator.geolocation) {
-        //  call default function here?
+        //  call default function here if error 
+        // getDefaultWeather();
         return ('Gelocation not supported by this browser');
       } else {
         function success(pos) {
@@ -22,13 +23,14 @@
           var lat = crd.latitude;
           var lon = crd.longitude;
           $log.log(lat);
-          $log.log(lon);      
-        }
-
-        // keep the geo in the service 
-        //  remember to put the do_something as a callback to API
-        //  
-        
+          $log.log(lon); 
+          return $http
+          .get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf`)
+          .then(function(response){
+            $log.log(response);
+            return response;
+          })     
+        }    
         function error(err) {
           $log.warn(`ERROR(${err.code}): ${err.message}`);
         }
@@ -38,24 +40,6 @@
 
     
     }
-
-    function getWeather(lat, lon) {
-      return $http
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=72f5cf872643336bf96167d5dda813cf`
-        )
-        .then(function(response) {
-          $log.log(response);
-          return response;
-        })
-        .catch(function() {
-          return new Error("Failed to get Weather data");
-        });
-
-
-    }
-
-
     function getCityWeather(cityName) {
       return $http
         .get(
