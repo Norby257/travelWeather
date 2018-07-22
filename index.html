@@ -19,7 +19,7 @@
 
 </head>
 
-<body ng-controller="weatherController as weather">
+<body ng-controller="weatherController as weatherCtrl">
 
   <!-- bootstrap navBar here -->
   <div>
@@ -57,7 +57,7 @@
 
 
     <!-- input form -->
-    <form ng-submit="weather.getCityWeather()">
+    <form ng-submit="weatherCtrl.getCityWeather()">
       <input type="text" ng-model="cityName" id="submit" value="submit" placeholder="Forecast by City">
       <button ng-click="getWeatherByCity()"> Get Forecast </button>
     </form>
@@ -71,18 +71,19 @@
       <div class="thumbnail" class="text-center">
         <!-- this is the repeating info for now -->
         <!-- ng-repeat="day in weather.fiveDayForecast[i]" -->
+
         <div>
-          <p> {{weather.title.weather[0].icon}}</p>
+          <p> {{weatherCtrl.title.weather[0].icon}}</p>
           <p>
-            <img ng-src="{{weather.icon}}" />
+            <img ng-src="{{weatherCtrl.icon}}" />
           </p>
-          <p>Date: {{weather.title.data.list[0].dt_txt}}</p>
+          <p>Date: {{weatherCtrl.title.data.list[0].dt_txt}}</p>
           {{icon}}
-          <p>Weather Condition: {{weather.title.data.list[0].weather[0].description}}</p>
-          <p> Temperature: {{weather.title.data.list[0].main.temp}}</p>
-          <p>High: {{weather.title.data.list[0].main["temp_max"]}}</p>
-          <p> Low: {{weather.title.data.list[0].main["temp_min"]}}</p>
-          <p> Humidity: {{weather.title.data.list[0].main.humidity}}%</p>
+          <p>Weather Condition: {{weatherCtrl.title.data.list[0].weather[0].description}}</p>
+          <p> Temperature: {{weatherCtrl.title.data.list[0].main.temp}}</p>
+          <p>High: {{weatherCtrl.title.data.list[0].main["temp_max"]}}</p>
+          <p> Low: {{weatherCtrl.title.data.list[0].main["temp_min"]}}</p>
+          <p> Humidity: {{weatherCtrl.title.data.list[0].main.humidity}}%</p>
         </div>
       </div>
     </div>

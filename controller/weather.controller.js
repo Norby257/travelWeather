@@ -37,7 +37,7 @@
       vm.title = data;
       $log.log(data);
       $log.log(crd);
-      getFiveDayForecast();
+      // getFiveDayForecast();
       return data;
     }
 
@@ -57,7 +57,6 @@
         function getFiveDayForecast() {
           vm.title = data;
           vm.icon  = "http://openweathermap.org/img/w/"+vm.title.data.list[0].weather[0].icon +".png"
-
           vm.forecasts.push(vm.title.data.list);
           $log.log(vm.forecasts); // output: [Array(40)]
           $log.log(vm.forecasts[0]); // array
@@ -66,6 +65,8 @@
           //   push the nested objects to a new array called 5-day forecast. it should contain an object for each day,
           //  so there should be five elements total (i.e.) Mon, Tues, Wed, Thurs, Fri, Sat
           //   | date 'yymmdd'
+          //  each element is stored in variable 
+          //  that way we can iterate over that variable i.e. 'forecast in forecasts' 
           var fiveDayForecast = [];
           for (let i = 0; i < vm.forecasts[0].length; i += 8) {
             $log.log(vm.forecasts[0][i]);
