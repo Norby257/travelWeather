@@ -11,38 +11,40 @@
   //  this is the parent controller
   //  pass values from the parent controller
   //  to child controllers
+  //  refer to  -  objects and types of ydkjs and also private and public methods 
   function weatherController(WeatherService, $scope, $log) {
     $scope.$log = $log;
-    // controller -handle user interaction 
-    //   routing - camelCase Ctrl 
-    //  route: Ctrl 
+    // controller -handle user interaction
+    //   routing - camelCase Ctrl
+    //  route: Ctrl
     //   weatherCtrl rather than just weather
     var vm = this;
     vm.forecasts = [];
-    // vm.getWeather = getWeather;
     vm.getCityWeather = getCityWeather;
     vm.title = "Forecast";
-
     activate();
     captureUserLocation();
-    // getWeather();
-    // getCityWeather();
     getDefaultWeather();
 
     function activate() {
       $log.log("activated Weather View");
     }
 
+
+
     function captureUserLocation(crd) {
       return WeatherService.getUserLocation();
       vm.title = data;
       $log.log(data);
       $log.log(crd);
+      getFiveDayForecast();
       return data;
     }
 
     function getCityWeather() {
-      return WeatherService.getCityWeather($scope.cityName).then(function(data) {
+      return WeatherService.getCityWeather($scope.cityName).then(function(
+        data
+      ) {
         vm.weather = data;
         $log.log(vm.weather);
       });
@@ -50,11 +52,12 @@
 
     function getDefaultWeather() {
       return WeatherService.getDefaultWeather().then(function(data) {
-        // vm.icon  = "http://openweathermap.org/img/w/"+title.data.list[0].weather[0].icon +".png"
         getFiveDayForecast();
 
         function getFiveDayForecast() {
           vm.title = data;
+          vm.icon  = "http://openweathermap.org/img/w/"+vm.title.data.list[0].weather[0].icon +".png"
+
           vm.forecasts.push(vm.title.data.list);
           $log.log(vm.forecasts); // output: [Array(40)]
           $log.log(vm.forecasts[0]); // array
