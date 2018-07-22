@@ -14,10 +14,6 @@
   //  refer to  -  objects and types of ydkjs and also private and public methods 
   function weatherController(WeatherService, $scope, $log) {
     $scope.$log = $log;
-    // controller -handle user interaction
-    //   routing - camelCase Ctrl
-    //  route: Ctrl
-    //   weatherCtrl rather than just weather
     var vm = this;
     vm.forecasts = [];
     vm.getCityWeather = getCityWeather;
@@ -55,9 +51,18 @@
         getFiveDayForecast();
 
         function getFiveDayForecast() {
-          vm.title = data;
-          vm.icon  = "http://openweathermap.org/img/w/"+vm.title.data.list[0].weather[0].icon +".png"
-          vm.forecasts.push(vm.title.data.list);
+          vm.weather = data;
+          $log.log(data);
+          vm.icon  = "http://openweathermap.org/img/w/"+vm.weather.data.list[0].weather[0].icon +".png"
+          vm.date = vm.weather.data.list[0].dt_txt;
+          vm.weatherCondition = vm.weather.data.list[0].weather[0].description;
+          vm.temperature = vm.weather.data.list[0].main.temp;
+          vm.high = vm.weather.data.list[0].main["temp_max"];
+          vm.low = vm.weather.data.list[0].main["temp_min"];
+          vm.humidity = vm.weather.data.list[0].main.humidity;
+          $log.log(vm.humidity);
+
+          vm.forecasts.push(vm.weather.data.list);
           $log.log(vm.forecasts); // output: [Array(40)]
           $log.log(vm.forecasts[0]); // array
           $log.log(vm.forecasts[0].length); //

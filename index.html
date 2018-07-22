@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Home | Travel Weather </title>
+  <weather>Home | Travel Weather </weather>
   <!-- link to bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
@@ -73,24 +73,22 @@
         <!-- ng-repeat="day in weather.fiveDayForecast[i]" -->
 
         <div>
-          <p> {{weatherCtrl.title.weather[0].icon}}</p>
           <p>
             <img ng-src="{{weatherCtrl.icon}}" />
           </p>
-          <p>Date: {{weatherCtrl.title.data.list[0].dt_txt}}</p>
-          {{icon}}
-          <p>Weather Condition: {{weatherCtrl.title.data.list[0].weather[0].description}}</p>
-          <p> Temperature: {{weatherCtrl.title.data.list[0].main.temp}}</p>
-          <p>High: {{weatherCtrl.title.data.list[0].main["temp_max"]}}</p>
-          <p> Low: {{weatherCtrl.title.data.list[0].main["temp_min"]}}</p>
-          <p> Humidity: {{weatherCtrl.title.data.list[0].main.humidity}}%</p>
+          <p>Date: {{weatherCtrl.date}}</p>
+          <p>Weather Condition: {{weatherCtrl.weatherCondition}}</p>
+          <p> Temperature: {{weatherCtrl.temperature}}</p>
+          <p>High: {{weatherCtrl.high}}</p>
+          <p> Low: {{weatherCtrl.low}}</p>
+          <p> Humidity: {{weatherCtrl.humidity}}%</p>
         </div>
       </div>
     </div>
   </div>
 
 
-  <!-- {{weather.title}}  -->
+  <!-- {{weatherCtrl.weather}}  -->
 
   <nav class="navbar navbar-inverse navbar-fixed-bottom">
     <div class="container">
