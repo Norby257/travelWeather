@@ -11,12 +11,14 @@
   //  this is the parent controller
   //  pass values from the parent controller
   //  to child controllers
-  //  refer to  -  objects and types of ydkjs and also private and public methods
   //  pseudocode for ng-repeat
   //  make a class called forecast -blank class
   //  then instantiate a new class for each FORECAST
   //  push each NEW forecast to FORECASTS array
   //  and then ng-repeat in index.html
+
+  //  fiveDayForecast function should be avail in all 
+  //  functions here to avoid writing duplicate code 
 
   function weatherController(WeatherService, $scope, $log) {
     $scope.$log = $log;
