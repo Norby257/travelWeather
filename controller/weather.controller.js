@@ -7,16 +7,16 @@
       "$log",
       weatherController
     ]);
-
-  //  this is the parent controller
-  //  pass values from the parent controller
-  //  to child controllers
-  //  refer to  -  objects and types of ydkjs and also private and public methods
   //  pseudocode for ng-repeat
-  //  make a class called forecast -blank class
-  //  then instantiate a new class for each FORECAST
-  //  push each NEW forecast to FORECASTS array
-  //  and then ng-repeat in index.html
+
+  //  make a new array, set to variable
+  //
+  //  push each NEW forecast to the NEW array
+  //  and then ng-repeat in index.html (forecast in forecasts)
+
+  //  fiveDayForecast function should be avail in all
+  //  functions here to avoid writing duplicate code - so far the defaultWeather() works
+  //   I was unable to implement ng-repeat, but it is soemthing that I would like to learn
 
   function weatherController(WeatherService, $scope, $log) {
     $scope.$log = $log;
@@ -33,16 +33,13 @@
       $log.log("activated Weather View");
     }
 
-    
-
-
     function captureUserLocation(crd) {
       return WeatherService.getUserLocation();
       vm.title = data;
       $log.log(data);
       $log.log(vm.title.list);
       $log.log(crd);
-      return data;
+      //  call fiveDayForecast here 
     }
 
     function getCityWeather() {
@@ -51,6 +48,7 @@
       ) {
         vm.cityWeather = data;
         $log.log(vm.cityWeather);
+        //  call fiveDayForecast here 
       });
     }
 
