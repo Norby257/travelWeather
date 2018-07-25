@@ -15,7 +15,8 @@
   //  and then ng-repeat in index.html (forecast in forecasts)
 
   //  fiveDayForecast function should be avail in all
-  //  functions here to avoid writing duplicate code
+  //  functions here to avoid writing duplicate code - so far the defaultWeather() works
+  //   I was unable to implement ng-repeat, but it is soemthing that I would like to learn
 
   function weatherController(WeatherService, $scope, $log) {
     $scope.$log = $log;
@@ -38,6 +39,7 @@
       $log.log(data);
       $log.log(vm.title.list);
       $log.log(crd);
+      //  call fiveDayForecast here 
     }
 
     function getCityWeather() {
@@ -46,6 +48,7 @@
       ) {
         vm.cityWeather = data;
         $log.log(vm.cityWeather);
+        //  call fiveDayForecast here 
       });
     }
 
